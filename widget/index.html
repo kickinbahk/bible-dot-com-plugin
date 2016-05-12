@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Load helper.css to use our helper classes.
+<link href="../../../../styles/helper.css" rel="stylesheet">
+-->
+
+<!-- JS -->
+  <script src="../../../scripts/buildfire.js"></script>
+
+	<!--
+  <script src="../../../../scripts/angular/angular.min.js"></script>
+  -->
+  <script src="../../../../scripts/angular/ui-bootstrap.min.js"></script>
+
+  <script src="../../../../scripts/jquery/jquery-1.11.2.min.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <iframe id="ifm" src="https://www.bible.com/bible/1/jhn.1"></iframe>
+  </div>
+  <script>
+    (function () {
+      var buffer = 20; //scroll bar buffer
+      var iframe = document.getElementById('ifm');
+
+      function pageY(elem) {
+        return elem.offsetParent ? (elem.offsetTop + pageY(elem.offsetParent)) : elem.offsetTop;
+      }
+
+      function resizeIframe() {
+        var height = document.documentElement.clientHeight;
+        height -= pageY(document.getElementById('ifm'))+ buffer ;
+        height = (height < 0) ? 0 : height;
+        document.getElementById('ifm').style.height = height + 'px';
+      }
+
+      // .onload doesn't work with IE8 and older.
+      if (iframe.attachEvent) {
+        iframe.attachEvent("onload", resizeIframe);
+      } else {
+        iframe.onload=resizeIframe;
+      }
+      window.onresize = resizeIframe;
+    })();
+  </script>
+</body>
+</html>

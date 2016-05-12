@@ -1,0 +1,22 @@
+{
+  "author":"kickinbahk Productions"
+,"pluginName":"Bible.com Plugin"
+,"pluginDescription":"an iFrame for bible site"
+,"supportEmail":"kickinbahkproductions@gmail.com"
+,"control":{
+  "content":{
+    "enabled":true
+  }
+, "design":{
+    "enabled":false
+  }
+, "settings":{
+    "enabled":false
+  }
+}
+,"widget":{
+
+},
+  "features" : [],
+  "languages" : ["en"]
+}
